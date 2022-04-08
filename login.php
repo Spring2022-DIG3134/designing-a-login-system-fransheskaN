@@ -1,16 +1,13 @@
 <?php
   include("security.php");
-  security_validate();
-  include("account.php")
+    if(!security_loggedIn()) {
 ?>
-
-<html>
+ <html>
   <head>
     <title>Log in</title>
-    <style>td{background-color:#f2f2f2;color:grey;padding:30px;}tr{border:1px solid #ddd; }table{border-collapse: collapse;}</style>
   </head>
   <body>
-   <h2>Log in</h2>
+  <h2>Log in</h2>
     <form action="login.php" method="POST">
     <label for="username">Username:</label><br>
      <input type="text"  id="username" name="username"><br>
@@ -18,8 +15,21 @@
      <input type="password" id="password" name="password"><br>
             <button type="submit">Log in</button>
          </form>
-  </body>
+  
+<?php
+    } else {
+      ?>  
+  <h2>Welcome</h2>
+  <a href='logout.php'>Logout</a>
+
+      <?php
+    }
+   ?>
+   </body>
 </html>
 <?php
+security_validate();
 security_login();
+security_loggedIn();
+security_sanitize();
 ?>
