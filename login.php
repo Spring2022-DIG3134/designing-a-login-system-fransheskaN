@@ -13,23 +13,18 @@
      <input type="text"  id="username" name="username"><br>
      <label for="password">Password:</label><br>
      <input type="password" id="password" name="password"><br>
-            <button type="submit">Log in</button>
+    <button type="submit">Log in</button>
          </form>
-  
-<?php
+<?php  
     } else {
       ?>  
   <h2>Welcome</h2>
   <a href='logout.php'>Logout</a>
-
       <?php
     }
    ?>
    </body>
 </html>
 <?php
-security_validate();
-security_login();
-security_loggedIn();
-security_sanitize();
+        security_login();
 ?>

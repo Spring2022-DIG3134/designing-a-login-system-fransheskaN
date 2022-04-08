@@ -19,8 +19,6 @@
   </body>
 </html>
 <?php
-security_validate();
 security_addNewUser();
 security_loggedIn();
-security_sanitize();
 ?>

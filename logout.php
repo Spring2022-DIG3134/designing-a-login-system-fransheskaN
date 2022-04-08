@@ -2,6 +2,7 @@
   include("security.php");
   security_logout();
 ?>
+<html>
  <head>
     <title>Logged out</title>
   </head>
