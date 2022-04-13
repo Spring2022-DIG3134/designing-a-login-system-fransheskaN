@@ -67,4 +67,17 @@
             mysqli_close($connection);
         }
     }
+    function database_deleteUser($username, $password){
+        global $connection;
+        if(database_verifyUser($username, $password)) {
+            mysqli_query($connection, "DELETE FROM users WHERE username = '{$username}';");
+        }
+    }
+    function database_updatePassword($username, $password, $newPassword){
+        global $connection;
+        if(database_verifyUser($username, $password)){
+            $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            mysqli_query($connection, "UPDATE users SET password = '{$newPassword}' WHERE username = '{$username}';");
+    }
+}
 ?>

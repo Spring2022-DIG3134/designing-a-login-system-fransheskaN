@@ -77,4 +77,25 @@
         // Return array
         return $result;
     }
+    function security_deleteUser() {
+        security_validate();
+        $result = security_sanitize();
+        database_connect();
+
+        if(database_verifyUser($username, $password) {
+            database_deleteUser($username, $password);
+    }
+    database_close();
+
+}
+    function security_updatePassword() {
+        security_validate();
+        $result = security_sanitize();
+
+        database_connect();
+        if(database_verifyUser($result["username"], $result["password"])) {
+            database_updatePassword($result["username"], $result["password"], $_POST["newPassword"]);
+        }
+        database_close();
+    }
 ?>
