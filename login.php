@@ -1,11 +1,13 @@
 <?php
   include("security.php");
-    if(!security_loggedIn()) {
-?>
+   ?>
  <html>
   <head>
     <title>Log in</title>
   </head>
+  <?php
+  if(!security_loggedIn()) {
+?>
   <body>
   <h2>Log in</h2>
   <h3>(Click login twice)<h3>
@@ -20,13 +22,11 @@
     } else {
       ?>  
   <h2>Welcome</h2>
-  <a href='logout.php'>Logout</a>
+  <a href='index.php'>Index</a>
       <?php
+      
     }
+    security_login();
    ?>
    </body>
 </html>
-<?php
-        security_login();
-        security_loggedIn();
-?>

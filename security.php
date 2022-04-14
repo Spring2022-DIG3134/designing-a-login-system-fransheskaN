@@ -90,7 +90,9 @@
         $result = security_sanitize();
 
         database_connect();
-        database_updatePassword($result["username"], $result["password"], $_POST["newPassword"]);
+        if(database_verifyUser($result["username"], $result["password"])) {
+            database_updatePassword($result["username"], $result["password"], $_POST["newPassword"]);
+        }
         database_close();
     }
 ?>

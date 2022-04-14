@@ -7,6 +7,9 @@
   </head>
   <body>
    <h2> Sign up</h2>
+   <?php
+  if(!security_loggedIn()) {
+?>
     <form action="signup.php" method="POST">
     <label for="username">Username:</label><br>
      <input type="text" id="username" name="username"><br>
@@ -14,7 +17,10 @@
      <input type="password" id="password" name="password"><br>
             <button type="submit">Sign up</button>
          </form>
-         <a href='login.php'>Login</a>
+         <?php  
+    } else {
+      ?>  
+         <a href='index.php'>index</a>
 
   </body>
 </html>
